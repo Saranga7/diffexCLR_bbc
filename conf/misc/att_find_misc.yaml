@@ -1,0 +1,18 @@
+# @package _global_
+checkpoint: ???
+
+auto_cpu_if_no_gpu: true
+device: cuda:3
+
+n_samples: 5
+n_dirs: 10
+alpha: 3
+image_size: 256
+threshold: 0.2
+M: 10
+
+
+k: 32
+feed_layers: null
+use_ema: false
+desired_class: female

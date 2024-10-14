@@ -1,0 +1,16 @@
+# @package _global_
+checkpoint: ???
+
+auto_cpu_if_no_gpu: true
+device: cuda:0
+
+n_samples: 10
+direction: 0
+max_alpha: 5
+alphas_ste_size: 0.5
+iterative: True
+image_size: 256
+
+k: 32
+use_ema: false
+desired_class: DMSO

@@ -1,0 +1,20 @@
+# @package _global_
+checkpoint: null
+
+tensorboard: true
+auto_cpu_if_no_gpu: true
+device: cuda:0
+mixed_precision: false
+save: true
+eval_freq: 1000
+eval_iters: 100
+
+hparams:
+  batch_size: 128
+  epochs: 15
+
+k: 10
+feed_layers: null
+train_projector: true
+use_ema: true
+diffae_ckpt_path: /projects/deepdevpath2/Saranga/diffae_BIO/checkpoints/bbc_autoenc/last.ckpt
