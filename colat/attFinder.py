@@ -45,7 +45,7 @@ class AttFinder:
         M: int = 5, # No. of coordinates to find
         conf = None,
         mode: str = 'non_ema',
-        desired_class: str = 'female'
+        desired_class: str = 'DMSO'
     ) -> None:
         # Logging
         self.logger = logging.getLogger()
@@ -77,7 +77,7 @@ class AttFinder:
         self.n_samples = n_samples
 
 
-        # We need to sample images from the opposite class
+        
         if self.desired_class == 'DMSO':
             opposite_class = "latrunculin_B_high_conc"
             self.target_class_index = 0
@@ -86,6 +86,7 @@ class AttFinder:
             opposite_class = "DMSO"
             self.target_class_index = 1
 
+        # We need to sample images from the opposite class
         self.test_data = self.conf.make_dataset(desired_class = opposite_class)
         self.dataset_length = len(self.test_data)
         print(f"Dataset length: {self.dataset_length}")
@@ -227,7 +228,7 @@ class AttFinder:
         k = 0 # To keep a track of the number of iterations
         with torch.no_grad():
 
-            while len(selected_coordinates) < self.M:
+            while len(selected_coordinates) < self.M: # loop until we find M coordinates (or run out of images to explain)
                 
                 max_effect = 0
                 best_coordinate = None

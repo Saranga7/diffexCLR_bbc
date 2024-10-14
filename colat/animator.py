@@ -200,9 +200,6 @@ class Animator:
 
                 ax.axis('off')  # Hide axes for a cleaner visualization
 
-                # Save individual image
-                # img_filename = f"sample_{i}_alpha_{alpha:.2f}.png"
-                # plt.imsave(img_filename, generated_images[0].permute(1, 2, 0).cpu().numpy())
             
             # Create animation object using matplotlib's animation functionality
             ani = animation.ArtistAnimation(fig, ims, interval=500, blit=True, repeat_delay=1000)
