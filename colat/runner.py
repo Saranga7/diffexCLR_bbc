@@ -7,6 +7,7 @@ from omegaconf import DictConfig, OmegaConf
 from torch.utils.tensorboard import SummaryWriter
 
 import wandb
+# saranga: use your wandb key here
 wandb.login(key = "280a63fbe206439a036945bcecd7d1f619763c7d")
 
 
@@ -81,6 +82,7 @@ def train(cfg: DictConfig) -> None:
         text = f"<pre>{OmegaConf.to_yaml(cfg)}</pre>"
         writer.add_text("config", text)
 
+        # saranga: use your own project name and entity
         wandb.init(project = "DiffaeCLR_Bio__w_Classifier", entity = "saranga7")
         # wandb.init(project="DiffaeCLR", config=cfg)
         # wandb.config.update(cfg)  # Add the configuration details to wandb
