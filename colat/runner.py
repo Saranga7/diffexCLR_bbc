@@ -265,7 +265,7 @@ def att_find(cfg: DictConfig) -> None:
         M=cfg.M,
         conf = conf,
         mode = mode,
-        desired_class = cfg.desired_class
+        desired_class = str(cfg.desired_class)
     )
 
     att_finder.run_att_find()
@@ -324,7 +324,7 @@ def animate(cfg: DictConfig) -> None:
         image_size=cfg.image_size,
         conf = conf,
         mode = mode,
-        desired_class = cfg.desired_class
+        desired_class = str(cfg.desired_class)
     )
     animator.animate()
 
