@@ -12,6 +12,19 @@ conda activate diffexCLR
 
 ## Training
 
+### Changes to be made in the `diffae` directory
+
+1. Modify the `PretrainedClassifier` in `model/unet_autoenc.py` by copying the code of the `PretrainedClassifier` architecture from the [`diffex` repo](https://github.com/Saranga7/diffex_bbc). Also set the correct `classifier_path` in the `BeatGANsAutoencModel` class.
+
+2. Modify the `templates.py` and `dataset.py` as per your dataset (copying from the diffex repo). 
+
+3. Modify the `data_paths` dictionary and `make_dataset` method in `config.py`
+
+4. Modify `conf = bbc_autoenc()` accordingly in `colate/runner.py` in the ``train``, ``generate``, ``att_find``, and ``animate`` functions.
+
+
+<br>
+
 You can set in `conf/train.yaml` what kind of direction model and projection you want to use (by default nonlinear).
 
 In `conf/misc/train_misc.yaml` set the `diffae_ckpt_path`, the number of `epochs` and the index of the gpu in `device` (remember hydra config created by the training is saved and reused during generation, attfind, animation etc).
@@ -60,6 +73,16 @@ bash run_gen.sh
 <hr>
 
 ## AttFind
+
+### Changes to be made in the `diffae` directory
+
+1. Create the "Selective dataset" in `dataset.py`. 
+
+2. Modify the `data_paths` dictionary and `make_dataset` method in `config.py` accordingly.
+
+3. Modify `conf.data_name` accordingly in `colate/runner.py` in the ``train``, ``generate``, ``att_find``, and ``animate`` functions.
+
+<br>
 
 In `run_AttFind.sh`
 
