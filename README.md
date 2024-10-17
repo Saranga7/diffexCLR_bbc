@@ -84,6 +84,8 @@ bash run_gen.sh
 
 <br>
 
+In `colat/attFinder.py`, modify the `if self.desired_class` condition as per the dataset you're adapting the code to. Do the same in `colat/animator.py`.
+
 In `run_AttFind.sh`
 
 - It is crucial to set the correct `MODEL_PATH` after training is complete.

@@ -213,8 +213,8 @@ class Visualizer:
 
                 for idx in range(len(self.dirs)):
                     ax[idx][len(self.neg_alphas)].imshow(orj_img[0].permute(1, 2, 0).cpu())
-                    # ax[idx][len(self.neg_alphas)].set_title(f"Original\n{formatted_output}")
-                    ax[idx][len(self.neg_alphas)].set_title(f"{formatted_output}" , fontsize=37, weight = "bold")
+                    ax[idx][len(self.neg_alphas)].set_title(f"Original\n{formatted_output}", weight = "bold")
+                    # ax[idx][len(self.neg_alphas)].set_title(f"{formatted_output}" , fontsize=37, weight = "bold")
                     ax[idx][len(self.neg_alphas)].axis('off')
 
 
@@ -246,8 +246,8 @@ class Visualizer:
 
                     for k in range(len(self.dirs)):
                         ax[k][idx].imshow(generated_images[k].permute(1, 2, 0).cpu())
-                        # ax[k][idx].set_title(f"α={alpha:.1f}\n{formatted_output[k]}")
-                        ax[k][idx].set_title(f"{formatted_output[k]}", fontsize=37, weight = "bold")
+                        ax[k][idx].set_title(f"α={alpha:.1f}\n{formatted_output[k]}", weight = "bold")
+                        # ax[k][idx].set_title(f"{formatted_output[k]}", fontsize=37, weight = "bold")
                         ax[k][idx].axis('off')
 
                     prev_alpha = alpha
@@ -273,8 +273,8 @@ class Visualizer:
 
                     for k in range(len(self.dirs)):
                         ax[k][idx + 1 + len(self.neg_alphas)].imshow(generated_images[k].permute(1, 2, 0).cpu())
-                        # ax[k][idx + 1 + len(self.neg_alphas)].set_title(f"α={alpha:.1f}\n{formatted_output[k]}")
-                        ax[k][idx + 1 + len(self.neg_alphas)].set_title(f"{formatted_output[k]}", fontsize=37, weight = "bold")
+                        ax[k][idx + 1 + len(self.neg_alphas)].set_title(f"α={alpha:.1f}\n{formatted_output[k]}", weight = "bold")
+                        # ax[k][idx + 1 + len(self.neg_alphas)].set_title(f"{formatted_output[k]}", fontsize=37, weight = "bold")
                         ax[k][idx + 1 + len(self.neg_alphas)].axis('off')
 
                     prev_alpha = alpha
