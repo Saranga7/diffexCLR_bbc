@@ -51,7 +51,7 @@ class Classifier_Component(nn.Module):
 
         print("Classifier path:", classifier_checkpoint_path)   
         self.classifier = PretrainedClassifier(pretrain = True)
-        self.classifier.load_state_dict(torch.load(classifier_checkpoint_path), strict = True)
+        self.classifier.load_state_dict(torch.load(classifier_checkpoint_path, map_location=torch.device('cpu')), strict=True)
 
         # Freeze the classifier
         for param in self.classifier.parameters():
