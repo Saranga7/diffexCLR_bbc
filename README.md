@@ -1,5 +1,15 @@
 # Diff-Ex CLR on BBBC021 
 
+## Setup
+
+```
+git clone https://github.com/Saranga7/diffexCLR_bbc.git
+cd diffexCLR_bbc
+
+conda env create -f environment.yml
+conda activate diffexCLR
+```
+
 ## Training
 
 You can set in `conf/train.yaml` what kind of direction model and projection you want to use (by default nonlinear).
