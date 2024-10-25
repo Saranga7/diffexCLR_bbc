@@ -3,7 +3,7 @@ checkpoint: null
 
 tensorboard: true
 auto_cpu_if_no_gpu: true
-device: cuda:0
+device: cuda:2
 mixed_precision: false
 save: true
 eval_freq: 1000
@@ -16,5 +16,5 @@ hparams:
 k: 10
 feed_layers: null
 train_projector: true
-use_ema: true
+use_ema: false
 diffae_ckpt_path: /projects/deepdevpath2/Saranga/diffae_BIO/checkpoints/bbc_autoenc/last.ckpt

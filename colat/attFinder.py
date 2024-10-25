@@ -138,9 +138,9 @@ class AttFinder:
             else:
                 model = self.generator.model
 
-            original_logit = model.classifier_component.classifier(original_image)
+            original_logit = model.classifier_component.mobile_net(original_image)
             original_prob = torch.softmax(original_logit, dim = -1)[: , target_class_index]
-            modified_logit = model.classifier_component.classifier(modified_image)
+            modified_logit = model.classifier_component.mobile_net(modified_image)
             modified_prob = torch.softmax(modified_logit, dim = -1)[: , target_class_index]
             
             return modified_prob - original_prob
@@ -151,7 +151,7 @@ class AttFinder:
             Get the classifier's prediction probability for the target class.
             """
             model = self.generator.ema_model if mode == 'ema' else self.generator.model
-            logits = model.classifier_component.classifier(image)
+            logits = model.classifier_component.mobile_net(image)
             probs = torch.softmax(logits, dim = -1)[: , target_class_index]  
             return probs
 

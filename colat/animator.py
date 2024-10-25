@@ -152,7 +152,7 @@ class Animator:
             else:
                 model = self.generator.model
 
-            return torch.softmax(model.classifier_component.classifier(imgs), dim = -1)[: , self.target_class_index]
+            return torch.softmax(model.classifier_component.mobile_net(imgs), dim = -1)[: , self.target_class_index]
 
 
         def _generate(z_sem, xT, T = 20):

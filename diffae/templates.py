@@ -33,9 +33,10 @@ def autoenc_base():
     return conf
 
 
-def bbc_autoenc_base():
+# saranga
+def bbc_autoenc_base(): 
     conf = autoenc_base()
-    conf.data_name = 'bbc021_simple'
+    conf.data_name = 'bbc021_simple'    # name of the dataset, this must be a key present in the data_paths dictionary in dataset.py
     conf.scale_up_gpus(4)
     conf.img_size = 128
     conf.net_ch = 128
@@ -47,13 +48,13 @@ def bbc_autoenc_base():
     return conf
 
 
-
-def bbc_autoenc():
+# saranga
+def bbc_autoenc(): 
     conf = bbc_autoenc_base()
-    conf.total_samples = 9_000_000
-    conf.eval_ema_every_samples = 500_000
-    conf.eval_every_samples = 500_000
-    conf.name = 'bbc_autoenc'
-    conf.include_classifier = True
+    conf.total_samples = 9_000_000  # total number of samples to train on, Adjust this to increase or decrease the training time
+    conf.eval_ema_every_samples = 500_000 # how often to evaluate the model
+    conf.eval_every_samples = 500_000 #  how often to evaluate the eval model 
+    conf.name = 'bbc_autoenc' # name of the configuration. The model will be saved as a directory of the same name inside checkpoints/
+    conf.include_classifier = True # must be true.
     return conf
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MODEL_PATH="outputs/run/train/ffhq_30/colat.models.NonlinearConditional_colat.projectors.NonlinearProjector/alpha_1__BS_128/2024-09-26"
+MODEL_PATH="outputs/run/train/ffhq_5/colat.models.NonlinearConditional_colat.projectors.NonlinearProjector/alpha_1__BS_128/2024-10-25"
 # MODEL_PATH="outputs/run/train/ffhq_5/colat.models.NonlinearConditional_colat.projectors.NonlinearProjector/2024-08-14"
 
 # Run the Python script with the specified arguments
@@ -8,7 +8,7 @@ python gen.py \
     --config-path="$MODEL_PATH/.hydra" \
     --config-name=config \
     checkpoint="$MODEL_PATH/best_model.pt" \
-    +n_samples=5 \
+    +n_samples=20 \
     +alphas="[-25,-20,-15,15,20,25]" \
     +iterative=False \
     +image_size=128 \

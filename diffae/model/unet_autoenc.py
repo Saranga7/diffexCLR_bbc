@@ -50,13 +50,14 @@ class Classifier_Component(nn.Module):
         super().__init__()
 
         print("Classifier path:", classifier_checkpoint_path)   
-        self.classifier = PretrainedClassifier(pretrain = True)
-        self.classifier.load_state_dict(torch.load(classifier_checkpoint_path, map_location=torch.device('cpu')), strict=True)
+        self.mobile_net = PretrainedClassifier(pretrain = True)
+        self.mobile_net.load_state_dict(torch.load(classifier_checkpoint_path), strict = True)
 
         # Freeze the classifier
-        for param in self.classifier.parameters():
+        for param in self.mobile_net.parameters():
                 param.requires_grad = False
 
+        ## We are no longer using batchnorm
         # self.linear_projection = nn.Sequential(
         #         nn.BatchNorm1d(style_dim + num_classes), 
         #         nn.Linear(style_dim + num_classes, style_dim)
@@ -65,10 +66,10 @@ class Classifier_Component(nn.Module):
         self.linear_projection = nn.Linear(style_dim + num_classes, style_dim)
         
     def forward(self, x, cond):       
-        logits = self.classifier(x)
+        logits = self.mobile_net(x)
         probabilities = torch.softmax(logits, dim = 1)
 
-        cond_class = torch.cat([probabilities, cond], axis = 1)
+        cond_class = torch.cat([probabilities, cond], axis = 1) # concatenating W and probabilities
         return self.linear_projection(cond_class)
 
 

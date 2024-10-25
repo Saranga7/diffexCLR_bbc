@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MODEL_PATH="outputs/run/train/ffhq_30/colat.models.NonlinearConditional_colat.projectors.NonlinearProjector/alpha_1__BS_128/2024-09-26"
+MODEL_PATH="outputs/run/train/ffhq_5/colat.models.NonlinearConditional_colat.projectors.NonlinearProjector/alpha_1__BS_128/2024-10-25"
 # MODEL_PATH="outputs/run/train/ffhq_5/colat.models.NonlinearConditional_colat.projectors.NonlinearProjector/2024-08-14"
 
 # Run the Python script with the specified arguments
@@ -11,7 +11,7 @@ python attfind.py \
     +n_samples=256 \
     +alpha=15\
     +image_size=128 \
-    +threshold=0.15 \
+    +threshold=0.25 \
     +M=10 \
     +desired_class="DMSO"
     # +n_dirs=100 \

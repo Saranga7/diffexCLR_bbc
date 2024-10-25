@@ -42,7 +42,6 @@ def train(cfg: DictConfig) -> None:
     conf = bbc_autoenc()
     conf.batch_size = cfg.hparams.batch_size
     conf.include_classifier = False
-    # conf.name = 'ffhq128_autoenc_w_classifier2'
 
     generator = LitModel(conf)
     

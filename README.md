@@ -40,12 +40,12 @@ A lot of changes have been made in the `colat/trainer.py` and `colat/visualizer.
 Now, to train:
 
 ```
-python train.py k=30 hparams.batch_size=128 model.alpha=1 
+python train.py k=10 hparams.batch_size=128 model.alpha=1 
 ```
 
 I use the following to store the training logs (however, a train.log is also created in the directory where the training is saved internally)
 ```
-python train.py k=30 hparams.batch_size=128 model.alpha=1> output_logs/train_k30_diffaeclr_alpha1_BS128.log 2>&1
+python train.py k=5 hparams.batch_size=128 model.alpha=1> output_logs/train_k5_diffaeclr_alpha1_BS128.log 2>&1
 ```
 
 Trainigns are saved in the `outputs/run` directory.

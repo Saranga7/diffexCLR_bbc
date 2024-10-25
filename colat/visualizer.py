@@ -168,7 +168,7 @@ class Visualizer:
             else:
                 model = self.generator.model
 
-            return torch.softmax(model.classifier_component.classifier(imgs), dim=1)
+            return torch.softmax(model.classifier_component.mobile_net(imgs), dim=1)
 
 
         def _generate(z_sem, xT, T = 20):
